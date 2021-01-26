@@ -11,7 +11,10 @@ target 'Vocabear' do
   
   use_frameworks!
   pod 'MaterialComponents', '~> 120.0'
-
+  
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Firestore'
+  
   target 'VocabearTests' do
     inherit! :search_paths
     # Pods for testing

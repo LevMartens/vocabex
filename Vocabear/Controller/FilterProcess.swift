@@ -12,17 +12,74 @@ import CoreData
 class FilterProcess {
     
         
-    let firstWordList = FirstWordListFilter()
+    var wordsToFilterOut: WordListFilter
     
-    static let shared = FilterProcess(name: "IDontKnowWhatToPutHere")
+    init(wordsToFilterOut: WordListFilter) {
+        self.wordsToFilterOut = wordsToFilterOut
+    }
     
-    var name: String
     
-    private init(name: String){
-       self.name = name
-       }
     
-    func setupObservers(){
+    func getFilterResults(wordList: String) -> [String]{
+        let cleanText = cleanUpTextForFiltering(page: wordList)
+        let results = startFiltering(wordList: cleanText)
+        
+        return results
+    }
+    
+    
+    private func startFiltering(wordList: [String]) -> [String]{
+        
+        var page = wordList
+        
+        var aNumber = 0
+        
+        
+        for _ in 1...wordsToFilterOut.rootWordList.count {
+
+            page = page.filter { $0 != wordsToFilterOut.rootWordList[aNumber] }
+           
+            aNumber += 1
+        }
+        
+        var bNumber = 0
+        
+        for _ in 1...wordsToFilterOut.rootWordListPlural.count {
+
+            page = page.filter { $0 != wordsToFilterOut.rootWordListPlural[bNumber] }
+           
+            bNumber += 1
+        }
+        
+        var cNumber = 0
+        
+        for _ in 1...wordsToFilterOut.rootWordListSuffix.count {
+
+            page = page.filter { $0 != wordsToFilterOut.rootWordListSuffix[cNumber] }
+           
+            cNumber += 1
+        }
+        
+        var dNumber = 0
+        
+        for _ in 1...wordsToFilterOut.rootWordListPrefix.count {
+
+            page = page.filter { $0 != wordsToFilterOut.rootWordListPrefix[dNumber] }
+           
+            dNumber += 1
+        }
+        
+        
+        
+        
+        return page
+        
+    }
+    
+
+    
+    
+    private func setupObservers(){
         
         NotificationCenter.default.addObserver(self, selector: #selector(toPersonalWords), name: Notification.Name("fetchedWordsToFilter"), object: nil)
         
@@ -31,7 +88,7 @@ class FilterProcess {
     }
     
     
-    func startFilter(page: String) -> [String] {
+    private func cleanUpTextForFiltering(page: String) -> [String] {
         
         let textString = page
         print(page)
@@ -58,24 +115,19 @@ class FilterProcess {
             oNumber += 1
         }
         
-        let filtered = firstWordList.startFilter(wordList: seperateWords)
-        print(filtered)
-        let secondFiltered = personalFilter(filtered)
-        print(secondFiltered)
+        let filteredWords = startFiltering(wordList: seperateWords)
+        print(filteredWords)
         
+        let filterResults = Array(Set(filteredWords))
         
-        let noDouble = Array(Set(secondFiltered))
-        
-        print(noDouble)
+        print(filterResults)
         
     
-    let resultsFilter1 = noDouble
-    return resultsFilter1
+    return filterResults
         
     }
 
     
-    var personalWords = ["and", "that", "sometimes", "the"]
     
     
     
@@ -83,23 +135,8 @@ class FilterProcess {
     
     
     
-    func personalFilter(_ wordList: [String]) -> [String] {
-        
-        var page = wordList
-        
-        var eNumber = 0
-        
-        for _ in 1...personalWords.count {
-
-           page = page.filter { $0 != personalWords[eNumber] }
-           
-            eNumber += 1
-        }
-        
-        return page
-        
-        
-    }
+    
+   
    
     @objc func toPersonalWords(notification: NSNotification) {
         

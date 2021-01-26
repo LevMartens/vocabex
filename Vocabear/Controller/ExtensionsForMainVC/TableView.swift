@@ -26,13 +26,13 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array.count
+        return currentWords.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell
-        let blabla = array[indexPath.row]
+        let blabla = currentWords[indexPath.row]
         cell.set(string: blabla)
         cell.backgroundColor = #colorLiteral(red: 0.1333333333, green: 0.2, blue: 0.262745098, alpha: 1)
         
@@ -47,35 +47,45 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
     func saveWordAction(at indexpath: IndexPath) -> UIContextualAction {
        let action = UIContextualAction(style: .destructive, title: "Save") { (action, view, completion) in
+        
+        let wordToSave = self.currentWords[indexpath.row]
+        self.savedWords.append(wordToSave)
+        
+        if self.wordsSaved == false {
+            let newList = SavedWords(context: self.context)
             
-//            print("saveword tapped \(self.currentBook)")
-//
-//            if let theBook = self.currentBook {
-//            print(theBook)
-//
-//
-//            let theWord = Word(context: self.NSManagedObject)
-//            print(theWord)
-//
-//                theWord.book = theBook
-//                theWord.word = self.array[indexpath.row]
-//                theWord.favourite = false
-//                theWord.definition = "put definition here when you fixed that"
-//                theWord.createdAt = Date()
-//                print(theWord.book ?? "no Book")
-//                print(theWord.word ?? "no Word")
-//                print(theWord.favourite)
-//                print(theWord.definition ?? "no Definition")
-//
-//                FilterProcess.shared.personalWords.append(self.array[indexpath.row])
-//                self.array.remove(at: indexpath.row)
-//                self.tableView.deleteRows(at: [indexpath], with: .automatic)
-//
-//            }
+            //context.delete(savedWordsCoreDataObject[0])
+            
+            newList.words = self.savedWords
+
+            do {
+                try self.context.save()
+            } catch {
+                print(error)
+            }
+            
+        } else {
+            
+            self.savedWordsCoreDataObject[0].words = self.savedWords
+            
+            do {
+                try self.context.save()
+            } catch {
+                print(error)
+                
+            }
+        }
+        
+        
+
+
+                self.currentWords.remove(at: indexpath.row)
+                self.tableView.deleteRows(at: [indexpath], with: .automatic)
+
 
 
         }
-//        action.backgroundColor = .green
+        action.backgroundColor = .green
 
         return action
     }
@@ -88,23 +98,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func deleteWordAction(at indexpath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
-//
-//
-//
-//            let theDeletedWord = DeletedWord(context: self.NSManagedObject)
-//            theDeletedWord.deletedWord = self.array[indexpath.row]
-//            theDeletedWord.createdAt = Date()
-//            print(theDeletedWord.deletedWord ?? "no word here")
-//
-//            FilterProcess.shared.personalWords.append(self.array[indexpath.row])
-//            self.array.remove(at: indexpath.row)
-//            self.tableView.deleteRows(at: [indexpath], with: .automatic)
-//
-//
-//
+            self.currentWords.remove(at: indexpath.row)
+            self.tableView.deleteRows(at: [indexpath], with: .automatic)
             
         }
-       // action.backgroundColor = .red
+        action.backgroundColor = .red
         
         return action
     }
