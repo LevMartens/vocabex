@@ -30,4 +30,34 @@ extension MainViewController {
         } catch {print(error)}
         
     }
+    
+    func savedWordsToCoreData() {
+        
+        if self.wordsSaved == false {
+            let newList = SavedWords(context: self.context)
+            
+            //context.delete(savedWordsCoreDataObject[0])
+            
+            newList.words = self.savedWords
+
+            do {
+                try self.context.save()
+            } catch {
+                print(error)
+            }
+            
+        } else {
+            
+            self.savedWordsCoreDataObject[0].words = self.savedWords
+            
+            do {
+                try self.context.save()
+            } catch {
+                print(error)
+                
+            }
+        }
+        
+        
+    }
 }

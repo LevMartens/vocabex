@@ -27,6 +27,8 @@
 		50C67D3525BFBDFB005D7294 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C67D3425BFBDFB005D7294 /* Firebase.swift */; };
 		50C67D3A25BFBF0B005D7294 /* Vision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C67D3925BFBF0B005D7294 /* Vision.swift */; };
 		50C67D5425BFEDB2005D7294 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C67D5325BFEDB2005D7294 /* CoreData.swift */; };
+		50C67D5C25C295FB005D7294 /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C67D5B25C295FB005D7294 /* ReviewVC.swift */; };
+		50C67D6225C2A038005D7294 /* TableViewForReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C67D6125C2A038005D7294 /* TableViewForReviewVC.swift */; };
 		684BFA4E33030C94412D35D4 /* Pods_VocabearTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DD1233BDF4A3394B82822B9 /* Pods_VocabearTests.framework */; };
 		B88AD6629A62AD6657E13059 /* Pods_Vocabear.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7A5476A8F6431BE272949F /* Pods_Vocabear.framework */; };
 		DAF72983EB8A34E09360B892 /* Pods_Vocabear_VocabearUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F3B4399E977A81B393D8C9 /* Pods_Vocabear_VocabearUITests.framework */; };
@@ -79,6 +81,8 @@
 		50C67D3425BFBDFB005D7294 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		50C67D3925BFBF0B005D7294 /* Vision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vision.swift; sourceTree = "<group>"; };
 		50C67D5325BFEDB2005D7294 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
+		50C67D5B25C295FB005D7294 /* ReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewVC.swift; sourceTree = "<group>"; };
+		50C67D6125C2A038005D7294 /* TableViewForReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewForReviewVC.swift; sourceTree = "<group>"; };
 		58F3B4399E977A81B393D8C9 /* Pods_Vocabear_VocabearUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vocabear_VocabearUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66353DB0DA2125F2BCC500EE /* Pods-Vocabear-VocabearUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vocabear-VocabearUITests.release.xcconfig"; path = "Target Support Files/Pods-Vocabear-VocabearUITests/Pods-Vocabear-VocabearUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6C0BB68FC03D5B6BA69CBD67 /* Pods-Vocabear-VocabearUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vocabear-VocabearUITests.debug.xcconfig"; path = "Target Support Files/Pods-Vocabear-VocabearUITests/Pods-Vocabear-VocabearUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -206,10 +210,11 @@
 		5005B4FF25BD342A008AC0CC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				50C67D6025C2A00E005D7294 /* ExtensionsForReviewVC */,
 				5005B51625BD3BC2008AC0CC /* ExtensionsForMainVC */,
 				5005B4C925BD3199008AC0CC /* MainViewController.swift */,
 				5005B50025BD345C008AC0CC /* FilterProcess.swift */,
-				5005B50925BD34C9008AC0CC /* WordListFilter.swift */,
+				50C67D5B25C295FB005D7294 /* ReviewVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 		5005B52C25BD4447008AC0CC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5005B50925BD34C9008AC0CC /* WordListFilter.swift */,
 				5005B52D25BD444E008AC0CC /* Cell */,
 			);
 			path = Model;
@@ -242,6 +248,14 @@
 				5005B52E25BD4490008AC0CC /* TableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		50C67D6025C2A00E005D7294 /* ExtensionsForReviewVC */ = {
+			isa = PBXGroup;
+			children = (
+				50C67D6125C2A038005D7294 /* TableViewForReviewVC.swift */,
+			);
+			path = ExtensionsForReviewVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -484,8 +498,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50C67D6225C2A038005D7294 /* TableViewForReviewVC.swift in Sources */,
 				5005B51825BD3BE5008AC0CC /* BlueView.swift in Sources */,
 				50C67D5425BFEDB2005D7294 /* CoreData.swift in Sources */,
+				50C67D5C25C295FB005D7294 /* ReviewVC.swift in Sources */,
 				5005B50A25BD34C9008AC0CC /* WordListFilter.swift in Sources */,
 				5005B50125BD345C008AC0CC /* FilterProcess.swift in Sources */,
 				50C67D3A25BFBF0B005D7294 /* Vision.swift in Sources */,
@@ -683,7 +699,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.levmartens.vocabear.Vocabear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -703,7 +719,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.levmartens.vocabear.Vocabear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
