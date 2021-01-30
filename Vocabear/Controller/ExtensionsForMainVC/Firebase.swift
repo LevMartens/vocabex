@@ -20,6 +20,12 @@ extension MainViewController {
                         
                         let data = document.data()
                         
+                        if let fetchedRootIrregular = data["Irregular"] as? [String] {
+                            self.rootIrregular = fetchedRootIrregular
+                            
+                            
+                        }
+                        
                         if let fetchedNamesAndCountries = data["NamesAndCountries"] as? [String] {
                             self.namesAndCountryList = fetchedNamesAndCountries
                             
@@ -58,7 +64,7 @@ extension MainViewController {
                         
                         
                     }
-                    self.wordList = WordListFilter(namesAndCountryList: self.namesAndCountryList, rootWordListPast: self.rootWordListPast, oddWordsAndNames: self.oddWordsAndNames, rootWordList: self.rootWordList, rootWordListPlural: self.rootWordListPlural, rootWordListSuffix: self.rootWordListSuffix, rootWordListPrefix: self.rootWordListPrefix)
+                    self.wordList = WordListFilter(rootIrregular: self.rootIrregular, namesAndCountryList: self.namesAndCountryList, rootWordListPast: self.rootWordListPast, oddWordsAndNames: self.oddWordsAndNames, rootWordList: self.rootWordList, rootWordListPlural: self.rootWordListPlural, rootWordListSuffix: self.rootWordListSuffix, rootWordListPrefix: self.rootWordListPrefix)
                     
                     
                     

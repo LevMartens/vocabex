@@ -94,9 +94,19 @@ class FilterProcess {
         for _ in 1...wordsToFilterOut.namesAndCountryList.count {
             
 
-            page = page.filter { $0 != wordsToFilterOut.namesAndCountryList[fNumber] }
+            page = page.filter { $0 != wordsToFilterOut.namesAndCountryList[kNumber] }
            
             kNumber += 1
+        }
+        
+        var lNumber = 0
+        
+        for _ in 1...wordsToFilterOut.rootIrregular.count {
+            
+
+            page = page.filter { $0 != wordsToFilterOut.rootIrregular[lNumber] }
+           
+            lNumber += 1
         }
         
         
@@ -123,15 +133,16 @@ class FilterProcess {
         var iNumber = 0
         
         for _ in 1...page.count {
-            print("pagecount: \(page.count)")
-            print("inumber: \(iNumber)")
+//            print("pagecount: \(page.count)")
+//            print("inumber: \(iNumber)")
             if page[iNumber].hasSuffix("-") {
                 page.remove(at: iNumber)
                 page.remove(at: iNumber)
-                print("inside pagecount: \(page.count)")
-                print("inside inumber: \(iNumber)")
+//                print("inside pagecount: \(page.count)")
+//                print("inside inumber: \(iNumber)")
                 iNumber = iNumber - 2
                 if iNumber == -1 {iNumber = 0}
+                if iNumber == -2 {iNumber = 0}
             } else {iNumber += 1}
             
         }
@@ -146,6 +157,15 @@ class FilterProcess {
             
         }
         
+        var mNumber = 0
+        
+        for _ in 1...page.count {
+            if page[mNumber].hasPrefix("--") {
+                page.remove(at: mNumber)
+                
+            } else {mNumber += 1}
+            
+        }
         
         
         
@@ -186,30 +206,31 @@ class FilterProcess {
         let takeOutO = takeOutN.replacingOccurrences(of: "\'", with: "")
         let takeOutP = takeOutO.replacingOccurrences(of: "!", with: "")
         let takeOutQ = takeOutP.replacingOccurrences(of: "*", with: "")
-        let cleanUp = takeOutQ.replacingOccurrences(of: "$", with: "")
+        let takeOutR = takeOutQ.replacingOccurrences(of: "$", with: "")
+        let cleanUp = takeOutR.replacingOccurrences(of: "•", with: "")
         var seperateWords = cleanUp.components(separatedBy: [" "])
         
-        print("clean: \(seperateWords)")
+//        print("clean: \(seperateWords)")
         
         var oNumber = 0
-        print("count before \(seperateWords.count)")
+//        print("count before \(seperateWords.count)")
         for _ in 1...seperateWords.count {
-            print("before n check \(seperateWords[oNumber])")
+//            print("before n check \(seperateWords[oNumber])")
         if seperateWords[oNumber].contains("\n") {
-            print("ckeck is true \(seperateWords[oNumber]) will be split")
+//            print("ckeck is true \(seperateWords[oNumber]) will be split")
             let ip = seperateWords[oNumber].replacingOccurrences(of: "\n", with: " ")
-            print("before array \(ip)")
+//            print("before array \(ip)")
             let op = ip.components(separatedBy: [" "])
-            print("after array \(op)")
+//            print("after array \(op)")
             seperateWords.append(contentsOf: op)
             seperateWords.remove(at: oNumber)
         } else {oNumber += 1}
             
         }
-        print("oNumber count \(oNumber)")
-        print("count after for in \(seperateWords.count)")
+//        print("oNumber count \(oNumber)")
+//        print("count after for in \(seperateWords.count)")
         let filteredWords = startFiltering(wordList: seperateWords)
-        print(filteredWords)
+//        print(filteredWords)
         
         let filterResults = Array(Set(filteredWords))
         

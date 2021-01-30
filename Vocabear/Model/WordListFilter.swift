@@ -16,8 +16,9 @@ class WordListFilter {
     var oddWordsAndNames: [String]
     var rootWordListPast: [String]
     var namesAndCountryList: [String]
+    var rootIrregular: [String]
     
-    init(namesAndCountryList: [String], rootWordListPast: [String], oddWordsAndNames: [String], rootWordList: [String], rootWordListPlural: [String], rootWordListSuffix: [String], rootWordListPrefix: [String] ) {
+    init(rootIrregular: [String], namesAndCountryList: [String], rootWordListPast: [String], oddWordsAndNames: [String], rootWordList: [String], rootWordListPlural: [String], rootWordListSuffix: [String], rootWordListPrefix: [String] ) {
         self.rootWordList = rootWordList
         self.rootWordListPlural = rootWordListPlural
         self.rootWordListPrefix = rootWordListPrefix
@@ -25,6 +26,7 @@ class WordListFilter {
         self.oddWordsAndNames = oddWordsAndNames
         self.rootWordListPast = rootWordListPast
         self.namesAndCountryList = namesAndCountryList
+        self.rootIrregular = rootIrregular
     }
     
     
