@@ -14,6 +14,11 @@ import Vision
 
 extension MainViewController: VNDocumentCameraViewControllerDelegate {
     
+    func startVisionScanner() {
+        let scannerViewController = VNDocumentCameraViewController()
+        scannerViewController.delegate = self
+        present(scannerViewController, animated: true)
+    }
    
     
      func setupVision() {

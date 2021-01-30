@@ -11,19 +11,44 @@ import UIKit
 class TableViewCell: UITableViewCell {
     
     
-    var label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+    //let screenSize: CGRect = UIScreen.main.bounds
+    
+   var label = UILabel(frame: CGRect(x: 15, y: 12, width: 200, height: 20))
+    
+    
+    
 
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         addSubview(label)
+  //      label.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        
+        self.backgroundColor = #colorLiteral(red: 0.2235294118, green: 0.2431372549, blue: 0.2745098039, alpha: 1)
+        self.layer.opacity = 0.5
+        
+        //self.layer.cornerRadius = 8
         
     }
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     func set(string: String){
         label.text = string
+        label.font = UIFont(name:"HiraMinProN-W3",size:18)
+        label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+       
+        
+    }
+    
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//        self.preservesSuperviewLayoutMargins = false
+//        self.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+//        //self.separatorInset = UIEdgeInsetsZero //if you also want to adjust separatorInset
+//    }
+    
     
 }

@@ -20,9 +20,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(TableViewCell.self, forCellReuseIdentifier: "Cell")
-        tableView.backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
+        
         
     }
+   
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,10 +35,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell
         let wordOnCell = currentWords[indexPath.row]
         cell.set(string: wordOnCell)
-        cell.backgroundColor = #colorLiteral(red: 0.1333333333, green: 0.2, blue: 0.262745098, alpha: 1)
+        
         
         return cell
     }
+    
       
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let saveWord = saveWordAction(at: indexPath)
@@ -56,7 +58,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
 
         }
-        action.backgroundColor = .green
+        action.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
 
         return action
     }
@@ -73,7 +75,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             self.tableView.deleteRows(at: [indexpath], with: .automatic)
             
         }
-        action.backgroundColor = .red
+        action.backgroundColor = #colorLiteral(red: 0.7803921569, green: 0.1725490196, blue: 0.2549019608, alpha: 1)
         
         return action
     }

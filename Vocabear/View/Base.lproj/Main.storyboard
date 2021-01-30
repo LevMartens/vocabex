@@ -16,9 +16,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0ad-u1-Zpc">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0ad-u1-Zpc">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -31,16 +33,23 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tpv-Ar-p50">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="kPx-G3-dXw">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="camera.circle.fill" catalog="system" id="kPx-G3-dXw">
                             <connections>
                                 <action selector="scanButton:" destination="BYZ-38-t0r" id="QuJ-aQ-TLj"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Vaw-Uh-SHo">
-                            <connections>
-                                <segue destination="X5d-T2-cys" kind="show" id="29u-7K-Tvk"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="archivebox.circle.fill" catalog="system" id="Vaw-Uh-SHo">
+                                <connections>
+                                    <segue destination="X5d-T2-cys" kind="show" id="29u-7K-Tvk"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="trash.circle.fill" catalog="system" id="7c4-h2-xPG">
+                                <connections>
+                                    <action selector="clearCurrentWords:" destination="BYZ-38-t0r" id="m3S-Vh-d6i"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="0ad-u1-Zpc" id="WXM-Kt-hfN"/>
@@ -50,7 +59,7 @@
             </objects>
             <point key="canvasLocation" x="695.6521739130435" y="75"/>
         </scene>
-        <!--ReviewVC-->
+        <!--Saved Words-->
         <scene sceneID="6ch-wd-E2n">
             <objects>
                 <viewController storyboardIdentifier="ReviewVC" id="X5d-T2-cys" customClass="ReviewVC" customModule="Vocabear" customModuleProvider="target" sceneMemberID="viewController">
@@ -58,9 +67,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZV2-SH-uKz">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZV2-SH-uKz">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qUd-8y-stS"/>
@@ -73,7 +84,7 @@
                             <constraint firstItem="ZV2-SH-uKz" firstAttribute="trailing" secondItem="qUd-8y-stS" secondAttribute="trailing" id="xTU-P6-ir2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="a0c-Mt-UoB"/>
+                    <navigationItem key="navigationItem" title="Saved Words" id="a0c-Mt-UoB"/>
                     <connections>
                         <outlet property="reviewTableView" destination="ZV2-SH-uKz" id="xm7-i1-yoh"/>
                     </connections>
@@ -90,6 +101,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xlo-BW-Wod">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="22"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -101,7 +116,11 @@
             <point key="canvasLocation" x="-214.49275362318843" y="75"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
+        <image name="archivebox.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="camera.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="trash.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

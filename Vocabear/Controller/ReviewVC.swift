@@ -5,11 +5,24 @@
 //  Created by Lev Martens on 28/1/21.
 //
 
+
 import UIKit
+import Foundation
+import UIKit
+import VisionKit
+import Vision
+import CoreData
+import MaterialComponents.MaterialAppBar
+import MaterialComponents
+import Firebase
 
 class ReviewVC: UIViewController {
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let dataBase = Firestore.firestore()
     var savedWords: [String] = []
+    var wordsSaved = false
+    var savedWordsCoreDataObject: [SavedWords] = []
 
 
     
@@ -17,17 +30,23 @@ class ReviewVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        savedWords.append("peanutbutter")
+        savedWords.append("examination")
+        savedWords.append("vocabulary")
+        savedWords.append("penis")
         
-      print("in vc \(savedWords)")
-        savedWords.append("terr")
+        buildUI()
+        
         setupTableView()
-        let bookDataDict:[String: [String]] = ["book": savedWords]
-        NotificationCenter.default.post(name: Notification.Name("sidft"), object: nil, userInfo: bookDataDict)
+        
     }
   
     
    
-    
+    override func viewDidDisappear(_ animated: Bool) {
+        print("viewDidDisapear")
+        updateMainVC()
+    }
    
     
     

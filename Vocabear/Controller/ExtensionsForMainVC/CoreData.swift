@@ -16,15 +16,19 @@ extension MainViewController {
         do {
             
             savedWordsCoreDataObject = try context.fetch(SavedWords.fetchRequest()) as! [SavedWords]
-            if savedWordsCoreDataObject.isEmpty {
-                wordsSaved = false
-                print("is empty")
+            if savedWordsCoreDataObject.count == 0 {
+                print("CoreData is empty")
+                
             } else {
-                wordsSaved = true
-                print(savedWordsCoreDataObject[0].words!)
+                if savedWordsCoreDataObject[0].words!.isEmpty {
+                
+                print("CoreData is empty")
+            } else {
+                
                 savedWords = savedWordsCoreDataObject[0].words!
-                print(savedWords)
-            }
+                print("savedWords: \(savedWords)")
+            }}
+            
             
             
         } catch {print(error)}
@@ -33,12 +37,12 @@ extension MainViewController {
     
     func savedWordsToCoreData() {
         
-        if self.wordsSaved == false {
+        if savedWordsCoreDataObject[0].words!.isEmpty {
             let newList = SavedWords(context: self.context)
             
-            //context.delete(savedWordsCoreDataObject[0])
-            
             newList.words = self.savedWords
+            
+            savedWordsCoreDataObject[0] = newList
 
             do {
                 try self.context.save()
@@ -60,4 +64,5 @@ extension MainViewController {
         
         
     }
+    
 }

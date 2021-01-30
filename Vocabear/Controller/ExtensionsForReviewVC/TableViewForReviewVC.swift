@@ -23,7 +23,7 @@ extension ReviewVC: UITableViewDelegate, UITableViewDataSource {
         reviewTableView.delegate = self
         reviewTableView.dataSource = self
         reviewTableView.register(TableViewCell.self, forCellReuseIdentifier: "Cell")
-        reviewTableView.backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
+        
         
     }
     
@@ -37,32 +37,11 @@ extension ReviewVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell
         let wordOnCell = savedWords[indexPath.row]
         cell.set(string: wordOnCell)
-        cell.backgroundColor = #colorLiteral(red: 0.1333333333, green: 0.2, blue: 0.262745098, alpha: 1)
+        
         
         return cell
     }
       
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let saveWord = saveWordAction(at: indexPath)
-        
-        return UISwipeActionsConfiguration(actions: [saveWord])
-    }
-
-    func saveWordAction(at indexpath: IndexPath) -> UIContextualAction {
-        let action = UIContextualAction(style: .destructive, title: "Save") { [self] (action, view, completion) in
-        
-//        let wordToSave = self.currentWords[indexpath.row]
-//        self.savedWords.append(wordToSave)
-//        self.savedWordsToCoreData()
-//        self.currentWords.remove(at: indexpath.row)
-//        self.tableView.deleteRows(at: [indexpath], with: .automatic)
-
-
-        }
-        action.backgroundColor = .green
-
-        return action
-    }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteWord = deleteWordAction(at: indexPath)
@@ -72,22 +51,20 @@ extension ReviewVC: UITableViewDelegate, UITableViewDataSource {
     
     func deleteWordAction(at indexpath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
-//            self.currentWords.remove(at: indexpath.row)
-//            self.tableView.deleteRows(at: [indexpath], with: .automatic)
+            self.savedWords.remove(at: indexpath.row)
+            self.savedWordsToCoreData()
+            self.updateMainVC()
+            self.reviewTableView.deleteRows(at: [indexpath], with: .automatic)
             
         }
-        action.backgroundColor = .red
+        action.backgroundColor = #colorLiteral(red: 0.7803921569, green: 0.1725490196, blue: 0.2549019608, alpha: 1)
         
         return action
     }
     
     
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-            
-        
-    }
+    
     
 
     
