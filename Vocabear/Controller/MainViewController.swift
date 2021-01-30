@@ -32,7 +32,10 @@ class MainViewController: UIViewController {
     var rootWordListPrefix: [String] = []
     var rootWordListSuffix: [String] = []
     var rootWordListPlural: [String] = []
+    var rootWordListPast: [String] = []
     var rootWordList: [String] = []
+    var namesAndCountryList: [String] = []
+    var oddWordsAndNames: [String] = []
     var wordList: WordListFilter
     var filterProcess: FilterProcess
     var currentWords: [String] = []
@@ -44,7 +47,7 @@ class MainViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         
-        self.wordList = WordListFilter(rootWordList: [], rootWordListPlural: [], rootWordListSuffix: [], rootWordListPrefix: [])
+        self.wordList = WordListFilter(namesAndCountryList: [], rootWordListPast: [], oddWordsAndNames: [], rootWordList: [], rootWordListPlural: [], rootWordListSuffix: [], rootWordListPrefix: [])
         self.filterProcess = FilterProcess(wordsToFilterOut: wordList)
         
         super.init(coder: coder)
@@ -60,10 +63,20 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currentWords.append("peanutbutter")
-        currentWords.append("examination")
-        currentWords.append("vocabulary")
-        currentWords.append("penis")
+//        let i = ""
+//        let iLowerCase = i.lowercased()
+//        let op = iLowerCase.components(separatedBy: [" "])
+//        dataBase.collection("RootWordList").document("NamesAndCountries").setData([
+//            "NamesAndCountries": op,
+//
+//        ]) { err in
+//            if let err = err {
+//                print("Error writing document: \(err)")
+//            } else {
+//                print("Document successfully written!")
+//            }
+//        }
+        
         
         buildUI()
         
@@ -76,6 +89,8 @@ class MainViewController: UIViewController {
         setupTableView()
         
         setupVision()
+        
+        
        
        
        
@@ -100,7 +115,6 @@ class MainViewController: UIViewController {
             reviewVC.savedWordsCoreDataObject = self.savedWordsCoreDataObject
             let backItem = UIBarButtonItem()
                 backItem.title = ""
-            
                 navigationItem.backBarButtonItem = backItem
             }
     }

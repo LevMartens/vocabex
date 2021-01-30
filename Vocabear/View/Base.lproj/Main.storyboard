@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Vocabex-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Vocabear" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,7 +32,7 @@
                             <constraint firstItem="0ad-u1-Zpc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mv5-wQ-aic"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="tpv-Ar-p50">
+                    <navigationItem key="navigationItem" title="Vocabex" id="tpv-Ar-p50">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="camera.circle.fill" catalog="system" id="kPx-G3-dXw">
                             <connections>
                                 <action selector="scanButton:" destination="BYZ-38-t0r" id="QuJ-aQ-TLj"/>

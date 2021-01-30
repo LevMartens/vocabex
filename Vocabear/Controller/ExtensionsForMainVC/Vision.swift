@@ -54,14 +54,14 @@ extension MainViewController: VNDocumentCameraViewControllerDelegate {
     }
     
     private func processImage(_ image: UIImage) {
- //       imageV.image = image
+ 
         recognizeTextInImage(image)
     }
     
      private func recognizeTextInImage(_ image: UIImage) {
         guard let cgImage = image.cgImage else { return }
         
-       // textV.text = ""
+       
         textRecognitionWorkQueue.async {
             let requestHandler = VNImageRequestHandler(cgImage: cgImage, options: [:])
             do {

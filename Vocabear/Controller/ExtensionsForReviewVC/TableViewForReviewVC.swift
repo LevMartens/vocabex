@@ -14,16 +14,10 @@ extension ReviewVC: UITableViewDelegate, UITableViewDataSource {
 
     
     
-    
-    
-    
-    
-    //move this function into a build ui file
     func setupTableView() {
         reviewTableView.delegate = self
         reviewTableView.dataSource = self
         reviewTableView.register(TableViewCell.self, forCellReuseIdentifier: "Cell")
-        
         
     }
     

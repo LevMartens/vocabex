@@ -30,10 +30,6 @@ class ReviewVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        savedWords.append("peanutbutter")
-        savedWords.append("examination")
-        savedWords.append("vocabulary")
-        savedWords.append("penis")
         
         buildUI()
         

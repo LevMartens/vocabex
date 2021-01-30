@@ -20,6 +20,24 @@ extension MainViewController {
                         
                         let data = document.data()
                         
+                        if let fetchedNamesAndCountries = data["NamesAndCountries"] as? [String] {
+                            self.namesAndCountryList = fetchedNamesAndCountries
+                            
+                            
+                        }
+                        
+                        if let fetchedRootWordsPast = data["RootWordsPast"] as? [String] {
+                            self.rootWordListPast = fetchedRootWordsPast
+                            
+                            
+                        }
+                        
+                        if let fetchedOddWordsAndNames = data["OddWordsAndNames"] as? [String] {
+                            self.oddWordsAndNames = fetchedOddWordsAndNames
+                            
+                            
+                        }
+                        
                         if let fetchedRootWords = data["RootWords"] as? [String] {
                             self.rootWordList = fetchedRootWords
                             
@@ -40,7 +58,9 @@ extension MainViewController {
                         
                         
                     }
-                    self.wordList = WordListFilter(rootWordList: self.rootWordList, rootWordListPlural: self.rootWordListPlural, rootWordListSuffix: self.rootWordListSuffix, rootWordListPrefix: self.rootWordListPrefix)
+                    self.wordList = WordListFilter(namesAndCountryList: self.namesAndCountryList, rootWordListPast: self.rootWordListPast, oddWordsAndNames: self.oddWordsAndNames, rootWordList: self.rootWordList, rootWordListPlural: self.rootWordListPlural, rootWordListSuffix: self.rootWordListSuffix, rootWordListPrefix: self.rootWordListPrefix)
+                    
+                    
                     
                     self.filterProcess = FilterProcess(wordsToFilterOut: self.wordList)
                     

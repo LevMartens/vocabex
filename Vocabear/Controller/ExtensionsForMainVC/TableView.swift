@@ -13,9 +13,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
 
     
-    
-    
-    //move this function into a build ui file
+
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -82,11 +80,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-            
-        
-    }
+    
     
 
     
