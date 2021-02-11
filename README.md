@@ -1,6 +1,6 @@
 # Vocabex
 
-Vocabex allows you to scan any page and filter out all the common used English words. The scanner part is apples vision framework. 
+Vocabex is native IOS app that allows you to scan any page and filter out the most commonly used English words in order to help improve your English vocabulary.. The scanner comes from the Vision framework. 
 Whenever a scan is made vision will read the page from the scan/photograph, then the page will be filtered through and you\'ll be left with the uncommon words that you can save in the app and study.
 
 The words that will be filtered out are stored in Firebase FireStore and fetched on startup. 
