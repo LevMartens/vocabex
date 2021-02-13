@@ -78,6 +78,13 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         return action
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "wordDetail")
+        self.present(vc, animated: true)
+        
+        self.tableView.deselectRow(at: indexPath, animated: true)
+    }
     
     
     

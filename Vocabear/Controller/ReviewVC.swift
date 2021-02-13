@@ -31,6 +31,23 @@ class ReviewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        savedWords.append("ambience")
+        savedWords.append("indefinitely")
+        savedWords.append("vigilante")
+        savedWords.append("subjective")
+        savedWords.append("objective")
+        savedWords.append("frantic")
+        savedWords.append("console")
+        savedWords.append("malice")
+        savedWords.append("penultimate")
+        savedWords.append("bog")
+        savedWords.append("dignify")
+        savedWords.append("mural")
+        savedWords.append("clavicle")
+        savedWords.append("tinge")
+        savedWords.append("defer")
+        savedWords.append("sustenance")
+        
         buildUI()
         
         setupTableView()
