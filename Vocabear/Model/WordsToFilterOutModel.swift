@@ -37,7 +37,7 @@ class WordsToFilterOutModel {
 extension WordsToFilterOutModel: FireStoreDelegate {
     
     func get(data: [String : Any])  {
-        print("BBB")
+        
         
         if let fetchedRootIrregular = data["Irregular"] as? [String] {
             self.rootIrregular = fetchedRootIrregular
