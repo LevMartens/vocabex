@@ -11,14 +11,11 @@ import CoreData
 
 class FilterProcess {
     
-        
-    var wordsToFilterOut: WordsToFilterOut
+    var wordsToFilterOut: WordsToFilterOutModel
     
-    init(wordsToFilterOut: WordsToFilterOut) {
+    init(wordsToFilterOut: WordsToFilterOutModel) {
         self.wordsToFilterOut = wordsToFilterOut
     }
-    
-    
     
     func getFilterResults(wordList: String) -> [String]{
         let cleanText = cleanUpTextForFiltering(page: wordList)
@@ -27,13 +24,10 @@ class FilterProcess {
         return results
     }
     
-    
     private func startFiltering(wordList: [String]) -> [String]{
         
         var page = wordList
-        
         var aNumber = 0
-        
         
         for _ in 1...wordsToFilterOut.rootWordList.count {
 
@@ -73,7 +67,6 @@ class FilterProcess {
         
         for _ in 1...wordsToFilterOut.oddWordsAndNames.count {
             
-
             page = page.filter { $0 != wordsToFilterOut.oddWordsAndNames[eNumber] }
            
             eNumber += 1
@@ -83,7 +76,6 @@ class FilterProcess {
         
         for _ in 1...wordsToFilterOut.rootWordListPast.count {
             
-
             page = page.filter { $0 != wordsToFilterOut.rootWordListPast[fNumber] }
            
             fNumber += 1
@@ -93,7 +85,6 @@ class FilterProcess {
         
         for _ in 1...wordsToFilterOut.namesAndCountryList.count {
             
-
             page = page.filter { $0 != wordsToFilterOut.namesAndCountryList[kNumber] }
            
             kNumber += 1
@@ -103,7 +94,6 @@ class FilterProcess {
         
         for _ in 1...wordsToFilterOut.rootIrregular.count {
             
-
             page = page.filter { $0 != wordsToFilterOut.rootIrregular[lNumber] }
            
             lNumber += 1
@@ -119,8 +109,8 @@ class FilterProcess {
             
         }
         
-        
         var hNumber = 0
+        
         let numbers = ["1","2","3","4","5","6","7","8","9","0"]
     
         for _ in 1...page.count {
@@ -133,13 +123,9 @@ class FilterProcess {
         var iNumber = 0
         
         for _ in 1...page.count {
-//            print("pagecount: \(page.count)")
-//            print("inumber: \(iNumber)")
             if page[iNumber].hasSuffix("-") {
                 page.remove(at: iNumber)
                 page.remove(at: iNumber)
-//                print("inside pagecount: \(page.count)")
-//                print("inside inumber: \(iNumber)")
                 iNumber = iNumber - 2
                 if iNumber == -1 {iNumber = 0}
                 if iNumber == -2 {iNumber = 0}
@@ -167,93 +153,49 @@ class FilterProcess {
             
         }
         
-        
-        
         return page
         
     }
     
 
     
-    
-  
-    
-    
     private func cleanUpTextForFiltering(page: String) -> [String] {
         
         let textString = page
         print(page)
         let textStringLowerCased = textString.lowercased()
-        print(textStringLowerCased)
-        let takeOutCommas = textStringLowerCased.replacingOccurrences(of: ",", with: "")
-        let periodsTakenOut = takeOutCommas.replacingOccurrences(of: ".", with: "")
-        let takeOutPrenthesisClosing = periodsTakenOut.replacingOccurrences(of: ")", with: "")
-        let takeOutParenthesisOpen = takeOutPrenthesisClosing.replacingOccurrences(of: "(", with: "")
-        let takeOutA = takeOutParenthesisOpen.replacingOccurrences(of: "\"", with: "")
-        let takeOutB = takeOutA.replacingOccurrences(of: "\'s", with: "")
-        let takeOutC = takeOutB.replacingOccurrences(of: ";", with: "")
-        let takeOutD = takeOutC.replacingOccurrences(of: "\'re", with: "")
-        let takeOutE = takeOutD.replacingOccurrences(of: "n\'t", with: "")
-        let takeOutF = takeOutE.replacingOccurrences(of: "?", with: "")
-        let takeOutG = takeOutF.replacingOccurrences(of: "»", with: "")
-        let takeOutH = takeOutG.replacingOccurrences(of: ":", with: "")
-        let takeOutI = takeOutH.replacingOccurrences(of: "{", with: "")
-        let takeOutJ = takeOutI.replacingOccurrences(of: "]", with: "")
-        let takeOutK = takeOutJ.replacingOccurrences(of: "[", with: "")
-        let takeOutL = takeOutK.replacingOccurrences(of: "|", with: "")
-        let takeOutM = takeOutL.replacingOccurrences(of: "«", with: "")
-        let takeOutN = takeOutM.replacingOccurrences(of: "\'ve", with: "")
-        let takeOutO = takeOutN.replacingOccurrences(of: "\'", with: "")
-        let takeOutP = takeOutO.replacingOccurrences(of: "!", with: "")
-        let takeOutQ = takeOutP.replacingOccurrences(of: "*", with: "")
-        let takeOutR = takeOutQ.replacingOccurrences(of: "$", with: "")
-        let cleanUp = takeOutR.replacingOccurrences(of: "•", with: "")
-        var seperateWords = cleanUp.components(separatedBy: [" "])
         
-//        print("clean: \(seperateWords)")
+        let takeOut = textStringLowerCased.replacingOccurrences(of: "[\",.)(;?»:{|}!«$•*]", with: "", options: .regularExpression, range: nil)
+        
+        let takeOutA = takeOut.replacingOccurrences(of: "\'re", with: "")
+        let takeOutB = takeOutA.replacingOccurrences(of: "n\'t", with: "")
+        let takeOutC = takeOutB.replacingOccurrences(of: "\'ve", with: "")
+        let takeOutD = takeOutC.replacingOccurrences(of: "\'", with: "")
+        var seperateWords = takeOutD.components(separatedBy: [" "])
         
         var oNumber = 0
-//        print("count before \(seperateWords.count)")
+
         for _ in 1...seperateWords.count {
-//            print("before n check \(seperateWords[oNumber])")
+
         if seperateWords[oNumber].contains("\n") {
-//            print("ckeck is true \(seperateWords[oNumber]) will be split")
+
             let ip = seperateWords[oNumber].replacingOccurrences(of: "\n", with: " ")
-//            print("before array \(ip)")
+
             let op = ip.components(separatedBy: [" "])
-//            print("after array \(op)")
+
             seperateWords.append(contentsOf: op)
             seperateWords.remove(at: oNumber)
         } else {oNumber += 1}
             
         }
-//        print("oNumber count \(oNumber)")
-//        print("count after for in \(seperateWords.count)")
-        let filteredWords = startFiltering(wordList: seperateWords)
-//        print(filteredWords)
+
+        let cleanedWords = seperateWords
         
-        let filterResults = Array(Set(filteredWords))
         
-        print(filterResults)
-        
-    
-    return filterResults
+    return cleanedWords
         
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
-  
-    
-    
 }
 
 

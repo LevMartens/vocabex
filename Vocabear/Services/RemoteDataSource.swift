@@ -14,12 +14,8 @@ import Firebase
 class RemoteDataSource {
     let dataBase = Firestore.firestore()
     var fireStoreDelegate: FireStoreDelegate!
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    lazy var mainVC = storyboard.instantiateViewController(withIdentifier: "Main") as! MainViewController
-    
-    
+   
     init() {}
-    
     
     func getWordListsFromCloudFS()  {
         dataBase.collection("RootWordList").getDocuments() { (querySnapshot, err) in

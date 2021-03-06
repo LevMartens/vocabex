@@ -11,16 +11,12 @@ import CoreData
 
 extension ReviewVC: UITableViewDelegate, UITableViewDataSource {
     
-
-    
-    
     func setupTableView() {
         reviewTableView.delegate = self
         reviewTableView.dataSource = self
         reviewTableView.register(TableViewCell.self, forCellReuseIdentifier: "Cell")
         
     }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return savedWords.count
@@ -46,7 +42,7 @@ extension ReviewVC: UITableViewDelegate, UITableViewDataSource {
     func deleteWordAction(at indexpath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
             self.savedWords.remove(at: indexpath.row)
-            self.savedWordsToCoreData()
+            self.savedWordsModel.save(words: self.savedWords)
             self.updateMainVC()
             self.reviewTableView.deleteRows(at: [indexpath], with: .automatic)
             
@@ -55,12 +51,5 @@ extension ReviewVC: UITableViewDelegate, UITableViewDataSource {
         
         return action
     }
-    
-    
-    
-    
-    
-
-    
     
 }

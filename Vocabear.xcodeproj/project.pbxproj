@@ -17,7 +17,7 @@
 		5005B4E025BD319C008AC0CC /* VocabearTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5005B4DF25BD319C008AC0CC /* VocabearTests.swift */; };
 		5005B4EB25BD319C008AC0CC /* VocabearUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5005B4EA25BD319C008AC0CC /* VocabearUITests.swift */; };
 		5005B50125BD345C008AC0CC /* FilterProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5005B50025BD345C008AC0CC /* FilterProcess.swift */; };
-		5005B50A25BD34C9008AC0CC /* WordsToFilterOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5005B50925BD34C9008AC0CC /* WordsToFilterOut.swift */; };
+		5005B50A25BD34C9008AC0CC /* WordsToFilterOutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5005B50925BD34C9008AC0CC /* WordsToFilterOutModel.swift */; };
 		5005B52025BD4385008AC0CC /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5005B51F25BD4385008AC0CC /* TableView.swift */; };
 		5005B52F25BD4490008AC0CC /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5005B52E25BD4490008AC0CC /* TableViewCell.swift */; };
 		5005B53725BD44BD008AC0CC /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5005B53625BD44BD008AC0CC /* TableViewCell.xib */; };
@@ -29,13 +29,19 @@
 		50ABEE7F25F302420067313A /* FireStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ABEE7E25F302420067313A /* FireStoreDelegate.swift */; };
 		50ABEE8025F302420067313A /* FireStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ABEE7E25F302420067313A /* FireStoreDelegate.swift */; };
 		50ABEE8125F302420067313A /* FireStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ABEE7E25F302420067313A /* FireStoreDelegate.swift */; };
-		50C67D3525BFBDFB005D7294 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C67D3425BFBDFB005D7294 /* Firebase.swift */; };
+		50ABEF5F25F35B3B0067313A /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C67D5325BFEDB2005D7294 /* LocalDataSource.swift */; };
+		50ABEF6025F35B3B0067313A /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C67D5325BFEDB2005D7294 /* LocalDataSource.swift */; };
+		50ABEF9025F362C30067313A /* SavedWordsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ABEF8F25F362C30067313A /* SavedWordsModel.swift */; };
+		50ABEF9125F362C30067313A /* SavedWordsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ABEF8F25F362C30067313A /* SavedWordsModel.swift */; };
+		50ABEF9225F362C30067313A /* SavedWordsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ABEF8F25F362C30067313A /* SavedWordsModel.swift */; };
+		50ABEF9725F3634D0067313A /* CoreDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ABEF9625F3634D0067313A /* CoreDataDelegate.swift */; };
+		50ABEF9825F3634D0067313A /* CoreDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ABEF9625F3634D0067313A /* CoreDataDelegate.swift */; };
+		50ABEF9925F3634D0067313A /* CoreDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ABEF9625F3634D0067313A /* CoreDataDelegate.swift */; };
 		50C67D3A25BFBF0B005D7294 /* Vision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C67D3925BFBF0B005D7294 /* Vision.swift */; };
-		50C67D5425BFEDB2005D7294 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C67D5325BFEDB2005D7294 /* CoreData.swift */; };
+		50C67D5425BFEDB2005D7294 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C67D5325BFEDB2005D7294 /* LocalDataSource.swift */; };
 		50C67D5C25C295FB005D7294 /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C67D5B25C295FB005D7294 /* ReviewVC.swift */; };
 		50C67D6225C2A038005D7294 /* TableViewForReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C67D6125C2A038005D7294 /* TableViewForReviewVC.swift */; };
 		50C67D7025C3E491005D7294 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C67D6F25C3E491005D7294 /* Observer.swift */; };
-		50C67D7525C3F824005D7294 /* CoreDataForReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C67D7425C3F824005D7294 /* CoreDataForReviewVC.swift */; };
 		50C67D7D25C3FBAA005D7294 /* ObserverForReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C67D7C25C3FBAA005D7294 /* ObserverForReviewVC.swift */; };
 		50C67D8425C40AB4005D7294 /* MainViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C67D8325C40AB4005D7294 /* MainViewUI.swift */; };
 		50C67D8C25C40AC6005D7294 /* ReviewViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C67D8B25C40AC6005D7294 /* ReviewViewUI.swift */; };
@@ -81,7 +87,7 @@
 		5005B4EA25BD319C008AC0CC /* VocabearUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabearUITests.swift; sourceTree = "<group>"; };
 		5005B4EC25BD319C008AC0CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5005B50025BD345C008AC0CC /* FilterProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterProcess.swift; sourceTree = "<group>"; };
-		5005B50925BD34C9008AC0CC /* WordsToFilterOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsToFilterOut.swift; sourceTree = "<group>"; };
+		5005B50925BD34C9008AC0CC /* WordsToFilterOutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsToFilterOutModel.swift; sourceTree = "<group>"; };
 		5005B51F25BD4385008AC0CC /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		5005B52E25BD4490008AC0CC /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		5005B53625BD44BD008AC0CC /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
@@ -89,13 +95,13 @@
 		508F74AC25D75D0E00BE2A71 /* WordDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailVC.swift; sourceTree = "<group>"; };
 		50ABEE7325F2E2890067313A /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
 		50ABEE7E25F302420067313A /* FireStoreDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreDelegate.swift; sourceTree = "<group>"; };
-		50C67D3425BFBDFB005D7294 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		50ABEF8F25F362C30067313A /* SavedWordsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedWordsModel.swift; sourceTree = "<group>"; };
+		50ABEF9625F3634D0067313A /* CoreDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDelegate.swift; sourceTree = "<group>"; };
 		50C67D3925BFBF0B005D7294 /* Vision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vision.swift; sourceTree = "<group>"; };
-		50C67D5325BFEDB2005D7294 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
+		50C67D5325BFEDB2005D7294 /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
 		50C67D5B25C295FB005D7294 /* ReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewVC.swift; sourceTree = "<group>"; };
 		50C67D6125C2A038005D7294 /* TableViewForReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewForReviewVC.swift; sourceTree = "<group>"; };
 		50C67D6F25C3E491005D7294 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
-		50C67D7425C3F824005D7294 /* CoreDataForReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataForReviewVC.swift; sourceTree = "<group>"; };
 		50C67D7C25C3FBAA005D7294 /* ObserverForReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverForReviewVC.swift; sourceTree = "<group>"; };
 		50C67D8325C40AB4005D7294 /* MainViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewUI.swift; sourceTree = "<group>"; };
 		50C67D8B25C40AC6005D7294 /* ReviewViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewUI.swift; sourceTree = "<group>"; };
@@ -161,6 +167,8 @@
 		5005B4B925BD3199008AC0CC = {
 			isa = PBXGroup;
 			children = (
+				5005B4C525BD3199008AC0CC /* AppDelegate.swift */,
+				5005B4C725BD3199008AC0CC /* SceneDelegate.swift */,
 				5005B4C425BD3199008AC0CC /* Vocabear */,
 				5005B4DE25BD319C008AC0CC /* VocabearTests */,
 				5005B4E925BD319C008AC0CC /* VocabearUITests */,
@@ -188,8 +196,6 @@
 				5005B52C25BD4447008AC0CC /* Model */,
 				50ABEE6725F2E0030067313A /* ViewControllers */,
 				5005B4FE25BD33FE008AC0CC /* View */,
-				5005B4C525BD3199008AC0CC /* AppDelegate.swift */,
-				5005B4C725BD3199008AC0CC /* SceneDelegate.swift */,
 				5005B4D125BD319C008AC0CC /* Assets.xcassets */,
 				5005B56925BD794C008AC0CC /* GoogleService-Info.plist */,
 				5005B4D625BD319C008AC0CC /* Info.plist */,
@@ -230,9 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				5005B51F25BD4385008AC0CC /* TableView.swift */,
-				50C67D3425BFBDFB005D7294 /* Firebase.swift */,
 				50C67D3925BFBF0B005D7294 /* Vision.swift */,
-				50C67D5325BFEDB2005D7294 /* CoreData.swift */,
 				50C67D6F25C3E491005D7294 /* Observer.swift */,
 			);
 			path = ExtensionsForMainVC;
@@ -241,7 +245,8 @@
 		5005B52C25BD4447008AC0CC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5005B50925BD34C9008AC0CC /* WordsToFilterOut.swift */,
+				5005B50925BD34C9008AC0CC /* WordsToFilterOutModel.swift */,
+				50ABEF8F25F362C30067313A /* SavedWordsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				50ABEE7D25F302290067313A /* Protocols */,
+				50C67D5325BFEDB2005D7294 /* LocalDataSource.swift */,
 				50ABEE7325F2E2890067313A /* RemoteDataSource.swift */,
 			);
 			path = Services;
@@ -288,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				50ABEE7E25F302420067313A /* FireStoreDelegate.swift */,
+				50ABEF9625F3634D0067313A /* CoreDataDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -296,7 +303,6 @@
 			isa = PBXGroup;
 			children = (
 				50C67D6125C2A038005D7294 /* TableViewForReviewVC.swift */,
-				50C67D7425C3F824005D7294 /* CoreDataForReviewVC.swift */,
 				50C67D7C25C3FBAA005D7294 /* ObserverForReviewVC.swift */,
 			);
 			path = ExtensionsForReviewVC;
@@ -554,19 +560,19 @@
 			files = (
 				508F74AD25D75D0E00BE2A71 /* WordDetailVC.swift in Sources */,
 				50C67D6225C2A038005D7294 /* TableViewForReviewVC.swift in Sources */,
-				50C67D5425BFEDB2005D7294 /* CoreData.swift in Sources */,
+				50C67D5425BFEDB2005D7294 /* LocalDataSource.swift in Sources */,
 				50C67D5C25C295FB005D7294 /* ReviewVC.swift in Sources */,
-				5005B50A25BD34C9008AC0CC /* WordsToFilterOut.swift in Sources */,
+				5005B50A25BD34C9008AC0CC /* WordsToFilterOutModel.swift in Sources */,
 				5005B50125BD345C008AC0CC /* FilterProcess.swift in Sources */,
 				50C67D3A25BFBF0B005D7294 /* Vision.swift in Sources */,
-				50C67D7525C3F824005D7294 /* CoreDataForReviewVC.swift in Sources */,
 				5005B4D025BD3199008AC0CC /* Vocabear.xcdatamodeld in Sources */,
 				5005B52F25BD4490008AC0CC /* TableViewCell.swift in Sources */,
 				5005B4CA25BD3199008AC0CC /* MainViewController.swift in Sources */,
-				50C67D3525BFBDFB005D7294 /* Firebase.swift in Sources */,
+				50ABEF9025F362C30067313A /* SavedWordsModel.swift in Sources */,
 				5005B52025BD4385008AC0CC /* TableView.swift in Sources */,
 				5005B4C625BD3199008AC0CC /* AppDelegate.swift in Sources */,
 				5005B4C825BD3199008AC0CC /* SceneDelegate.swift in Sources */,
+				50ABEF9725F3634D0067313A /* CoreDataDelegate.swift in Sources */,
 				50C67D8C25C40AC6005D7294 /* ReviewViewUI.swift in Sources */,
 				50ABEE7F25F302420067313A /* FireStoreDelegate.swift in Sources */,
 				50ABEE7425F2E2890067313A /* RemoteDataSource.swift in Sources */,
@@ -580,7 +586,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50ABEF5F25F35B3B0067313A /* LocalDataSource.swift in Sources */,
+				50ABEF9125F362C30067313A /* SavedWordsModel.swift in Sources */,
 				50ABEE7525F2E2890067313A /* RemoteDataSource.swift in Sources */,
+				50ABEF9825F3634D0067313A /* CoreDataDelegate.swift in Sources */,
 				50ABEE8025F302420067313A /* FireStoreDelegate.swift in Sources */,
 				5005B4E025BD319C008AC0CC /* VocabearTests.swift in Sources */,
 			);
@@ -590,7 +599,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50ABEF6025F35B3B0067313A /* LocalDataSource.swift in Sources */,
+				50ABEF9225F362C30067313A /* SavedWordsModel.swift in Sources */,
 				50ABEE7625F2E2890067313A /* RemoteDataSource.swift in Sources */,
+				50ABEF9925F3634D0067313A /* CoreDataDelegate.swift in Sources */,
 				50ABEE8125F302420067313A /* FireStoreDelegate.swift in Sources */,
 				5005B4EB25BD319C008AC0CC /* VocabearUITests.swift in Sources */,
 			);

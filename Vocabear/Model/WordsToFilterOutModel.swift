@@ -7,10 +7,11 @@
 
 import Foundation
 
-class WordsToFilterOut {
+class WordsToFilterOutModel {
     
     var fireStoreDelegate: FireStoreDelegate!
     var remoteDataSource = RemoteDataSource()
+    
     var rootWordListPrefix: [String] = []
     var rootWordListSuffix: [String] = []
     var rootWordListPlural: [String] = []
@@ -33,7 +34,7 @@ class WordsToFilterOut {
     
 }
 
-extension WordsToFilterOut: FireStoreDelegate {
+extension WordsToFilterOutModel: FireStoreDelegate {
     
     func get(data: [String : Any])  {
         print("BBB")

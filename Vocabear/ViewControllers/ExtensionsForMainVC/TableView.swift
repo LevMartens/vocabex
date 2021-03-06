@@ -12,8 +12,6 @@ import CoreData
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
 
-    
-
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -49,8 +47,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let action = UIContextualAction(style: .destructive, title: "Save") { [self] (action, view, completion) in
         
         let wordToSave = self.currentWords[indexpath.row]
-        self.savedWords.append(wordToSave)
-        self.savedWordsToCoreData()
+        self.wordsToSave.append(wordToSave)
+        self.savedWordsModel.save(words: wordsToSave)
         self.currentWords.remove(at: indexpath.row)
         self.tableView.deleteRows(at: [indexpath], with: .automatic)
 

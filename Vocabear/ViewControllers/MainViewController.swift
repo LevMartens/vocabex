@@ -22,28 +22,23 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
     let textRecognitionWorkQueue = DispatchQueue(label: "MyVisionScannerQueue", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
     
     var textRecognitionRequest = VNRecognizeTextRequest(completionHandler: nil)
-    var wordList = WordsToFilterOut()
+    var wordList = WordsToFilterOutModel()
     var filterProcess: FilterProcess
     var currentWords: [String] = []
-    var savedWordsCoreDataObject: [SavedWords] = []
-    var savedWords: [String] = []
-    
-    
+    var savedWordsModel = SavedWordsModel()
+    var wordsToSave: [String] = []
     
     
     required init?(coder: NSCoder) {
         
         self.filterProcess = FilterProcess(wordsToFilterOut: wordList)
-    
+        
         super.init(coder: coder)
         
     }
-    
 
     
     override func viewDidLoad() {
@@ -52,7 +47,7 @@ class MainViewController: UIViewController {
         
         buildUI()
         
-        getSavedWordsFromCoreData()
+        wordsToSave = savedWordsModel.savedWordsArray
         
         setupObservers()
         
@@ -75,11 +70,11 @@ class MainViewController: UIViewController {
         startVisionScanner()
         
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let reviewVC = segue.destination as? ReviewVC {
-            reviewVC.savedWords = self.savedWords
-            reviewVC.savedWords = self.savedWords
-            reviewVC.savedWordsCoreDataObject = self.savedWordsCoreDataObject
+            reviewVC.savedWords = self.wordsToSave
+            reviewVC.savedWords = self.wordsToSave
             let backItem = UIBarButtonItem()
                 backItem.title = ""
                 navigationItem.backBarButtonItem = backItem

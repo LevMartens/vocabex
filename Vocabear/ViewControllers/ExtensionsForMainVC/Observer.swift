@@ -21,19 +21,11 @@ extension MainViewController {
             
          if let savedWordsFromReviewVC = dict["savedWords"] as? [String]{
             
-            savedWords = savedWordsFromReviewVC
-            
-        
-         }
-         if let coreDataObjectFromReviewVC = dict["coreDataObject"] as? [SavedWords]{
-                
-            savedWordsCoreDataObject = coreDataObjectFromReviewVC
-                
+            wordsToSave = savedWordsFromReviewVC
             
          }
             
         }
-        print("getDataFromReviewVC called savedwords: \(savedWords) ")
         
     }
     

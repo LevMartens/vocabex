@@ -40,8 +40,8 @@ extension MainViewController: VNDocumentCameraViewControllerDelegate {
             DispatchQueue.main.async {
                 
              
-             let arrayA = self.filterProcess.getFilterResults(wordList: detectedText)
-             self.currentWords.append(contentsOf: arrayA)
+             let filterResults = self.filterProcess.getFilterResults(wordList: detectedText)
+             self.currentWords.append(contentsOf: filterResults)
              
              self.tableView.reloadData()
              

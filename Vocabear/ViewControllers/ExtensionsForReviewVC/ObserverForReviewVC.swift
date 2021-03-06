@@ -9,13 +9,9 @@ import Foundation
 
 extension ReviewVC {
     
-    
-    
-    
     func updateMainVC() {
-        let savedWordsDataDict:[String: [Any]] = ["savedWords": self.savedWords, "coreDataObject": self.savedWordsCoreDataObject]
+        let savedWordsDataDict:[String: [Any]] = ["savedWords": self.savedWords]
         NotificationCenter.default.post(name: Notification.Name("sendDataToMainVC"), object: nil, userInfo: savedWordsDataDict)
-        
         
     }
 }
