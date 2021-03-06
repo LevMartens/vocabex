@@ -12,9 +12,9 @@ import CoreData
 class FilterProcess {
     
         
-    var wordsToFilterOut: WordListFilter
+    var wordsToFilterOut: WordsToFilterOut
     
-    init(wordsToFilterOut: WordListFilter) {
+    init(wordsToFilterOut: WordsToFilterOut) {
         self.wordsToFilterOut = wordsToFilterOut
     }
     
