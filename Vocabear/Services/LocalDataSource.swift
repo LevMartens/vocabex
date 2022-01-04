@@ -15,6 +15,7 @@ class LocalDataSource {
     
     var coreDataDelegate: CoreDataDelegate!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    //var savedWordsCoreDataObject: [SavedWords] = []
     var savedWordsCoreDataObject: [SavedWords] = []
     
     
@@ -50,8 +51,22 @@ class LocalDataSource {
     
     func saveWordsToCoreData(list: [String]) {
         
-            self.savedWordsCoreDataObject[0].words = list
+        
+        
+        
+        if savedWordsCoreDataObject.count == 0 {
             
+            
+            let t = SavedWords(context: self.context)
+            t.words = list
+            savedWordsCoreDataObject = [t]
+
+        } else {
+            
+            self.savedWordsCoreDataObject[0].words = list
+        }
+        
+        print("YYYY")
             do {
                 try self.context.save()
             } catch {

@@ -44,18 +44,25 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func saveWordAction(at indexpath: IndexPath) -> UIContextualAction {
+        print("AAAAAAA save function starts")
         let action = UIContextualAction(style: .destructive, title: "Save") { [self] (action, view, completion) in
-        
+            
+       
         let wordToSave = self.currentWords[indexpath.row]
+            
         self.wordsToSave.append(wordToSave)
+           
         self.savedWordsModel.save(words: wordsToSave)
+           
         self.currentWords.remove(at: indexpath.row)
+          
         self.tableView.deleteRows(at: [indexpath], with: .automatic)
+          
 
 
         }
         action.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
-
+        
         return action
     }
     

@@ -24,6 +24,7 @@ class SavedWordsModel {
     }
     
     func save(words: [String]) {
+        
         localDataSource.saveWordsToCoreData(list: words)
     }
     
